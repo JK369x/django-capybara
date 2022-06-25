@@ -1,0 +1,39 @@
+{% extends 'company/base.html' %}
+{% load static %}
+{% block title %}Contact | Capybara{% endblock title %}
+{% block content %}
+
+
+
+<form method="POST"> 
+    {% csrf_token %}
+
+    {% if message %}
+      
+        {{message}}
+
+
+    {% else %}
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" class="form-control" id="title" name="title">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" id="email" name="email">
+      </div>
+      <br>
+    <div class="form-group">
+        <label for="detail">Description:</label>
+        <textarea class="form-control" rows="5" id="detail" name="detail"></textarea>
+    </div>  
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
+  {% endif %}
+
+
+
+{% endblock content %}

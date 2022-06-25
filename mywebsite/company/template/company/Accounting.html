@@ -1,0 +1,40 @@
+{% extends 'company/base.html' %}
+    
+
+
+
+{% load static %}
+{% block title %}Accounting | Capybara{% endblock title %}
+{% block content %}
+
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Number</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Detail</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <center><h2>Accounting</h2></center>
+        
+      {% for ac in accounting %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{ac.title}}</td>
+        <td>{{ac.email}}</td>
+        <td>{{ac.description}}</td>
+        {% if ac.check_box == True %}
+          <td><i class="fa fa-check" style="font-size: 30px;color:green;"></i></td>
+        {% else %}
+          <td><i class="fa fa-times" style="font-size:30px;color:red;"></i></td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+ 
+{% endblock content %}

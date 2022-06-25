@@ -1,0 +1,52 @@
+{% extends 'company/base.html' %}
+{% load static %}
+{% block title %}Register | Capybara{% endblock title %}
+{% block content %}
+
+
+
+<form method="POST">
+
+    {% if message %}
+    <div class="alert alert-success">
+      <strong>Success!</strong> Indicates a successful register.
+    </div>  
+    {% elif check_password %}
+    <div class="alert alert-warning">
+      <strong>Warning!</strong> check your password.
+    </div>
+    {% elif fail_message %}
+    <div class="alert alert-danger">
+      <strong>fail register!</strong> check your email again.
+    </div>
+    {% else %}
+    <div class="form-group">
+      {% csrf_token %}
+      <label for="first_name">Firstname:</label>
+      <input type="text" class="form-control" id="first_name" name="first_name" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="last_name">Lastname:</label>
+        <input type="text" class="form-control" id="last_name" name="last_name" required>
+      </div>
+    <br>
+    <div class="form-group">
+        <label for="username">email:</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <br>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <br>
+    <div class="form-group">
+        <label for="password2">Password:</label>
+        <input type="password" class="form-control" id="password2" name="password2" required>
+      </div>
+      <br>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+  {% endif %}
+{% endblock content %}
