@@ -2,11 +2,11 @@ from django.shortcuts import render
 # ใช้สำหรับการ show 
 from django.http import HttpResponse 
 from .models import *
-#line
-from songline import Sendline
+# #line
+# from songline import Sendline
 from django.contrib.auth import authenticate, login
 # send email
-from .email_system import sendthai
+# from .email_system import sendthai
 
 
 def Home(request):
@@ -44,9 +44,9 @@ def Contact(request):
         newrecord.description = detail
         context['message'] = 'We have received your message.'
         newrecord.save() #save ลง data base
-        # แจ้ง email ตอบกลับ
-        text = 'ฟหกฟหกฟหกฟหกฟหกฟหก'
-        sendthai(email,'JK | Capybara',text)
+        # # แจ้ง email ตอบกลับ
+        # text = 'ฟหกฟหกฟหกฟหกฟหกฟหก'
+        # sendthai(email,'JK | Capybara',text)
         
         # send line 
        #token = 'mrcSQGfma7FIM5Fdgpj2SwtXL8HaU8TB6IxywFroNNZ'
@@ -115,8 +115,8 @@ def Register(request):
             newprofile.user = User.objects.get(username=username)
             newprofile.save()
             context['message'] = 'success register!!'
-            text = 'ไอกันหน้าหี'
-            sendthai(username,'JK | Capybara',text)
+            # text = 'ไอกันหน้าหี'
+            # sendthai(username,'JK | Capybara',text)
                      
         try:
             user = authenticate(username=username, password=password) #get user ล่าสุด

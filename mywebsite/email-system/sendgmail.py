@@ -5,7 +5,7 @@ from email.mime.text import MIMEText
 def sendthai(sendto,subj="ทดสอบส่งเมลลล์",detail="สวัสดี!\nคุณสบายดีไหม?\n"):
 
 	myemail = 'jakkarinsz0001@gmail.com'
-	mypassword = 'Aa121314'
+	mypassword = 'Aa121314+'
 	receiver = sendto
 
 	msg = MIMEMultipart('alternative')
